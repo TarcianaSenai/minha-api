@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-// Carrega variáveis do .env (como MONGO_URI)
+// Aqui Carrega variáveis do .env (como MONGO_URI)
 dotenv.config();
 
 const app = express();
@@ -10,7 +10,7 @@ const PORT = 3000;
 
 app.use(express.json()); // Permite receber JSON no corpo das requisições
 
-// Conecta com o banco MongoDB
+// AQui Conecta com o banco MongoDB
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -21,7 +21,7 @@ const connectDB = async () => {
 };
 connectDB();
 
-// Inicia o servidor
+// AQui Inicia o servidor
 app.listen(PORT, () => console.log(`O servidor está rodando na porta ${PORT}`));
 
 // Modelo de Filme
