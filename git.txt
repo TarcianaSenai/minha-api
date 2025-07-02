@@ -1,0 +1,226 @@
+GIT - GUIA PRÁTICO COMPLETO
+Tudo o que você precisa saber para começar com Git, sem complicações 😉
+
+=======================================================
+1. INTRODUÇÃO AO GIT
+=======================================================
+Git é um sistema de controle de versão distribuído, criado por Linus Torvalds em 2005, para gerenciar o kernel do Linux.
+
+Ele permite que várias pessoas trabalhem em um projeto simultaneamente, controlando o histórico de mudanças no código-fonte.
+
+=======================================================
+2. CONCEITOS FUNDAMENTAIS
+=======================================================
+🔹 Repositório
+Local onde o Git armazena arquivos e histórico de versões.
+- Local: em seu computador.
+- Remoto: em servidores como GitHub, GitLab ou Bitbucket.
+
+🔹 Commit
+Uma “foto” dos arquivos em um momento. Representa uma versão registrada do projeto.
+
+🔹 Branch (Ramificação)
+Linha paralela de desenvolvimento. Ideal para criar funcionalidades sem afetar a principal (geralmente a `main`).
+
+🔹 Merge
+Mescla o código de uma branch em outra.
+
+🔹 Clone
+Copia um repositório remoto para sua máquina local.
+
+🔹 Push
+Envia alterações locais para o repositório remoto.
+
+🔹 Pull
+Traz atualizações do repositório remoto para sua máquina.
+
+=======================================================
+3. INSTALAÇÃO DO GIT
+=======================================================
+📦 Instale o Git:
+- Windows: https://git-scm.com/download/win
+- macOS: https://git-scm.com/download/mac
+- Linux: `sudo apt install git`
+
+Verifique a instalação:
+    git --version
+
+=======================================================
+4. CONFIGURAÇÃO INICIAL
+=======================================================
+    git config --global user.name "Seu Nome"
+    git config --global user.email "seuemail@exemplo.com"
+
+=======================================================
+5. CRIANDO UM REPOSITÓRIO
+=======================================================
+Crie e acesse a pasta do projeto:
+    mkdir meu-projeto
+    cd meu-projeto
+Inicie o Git:
+    git init
+
+=======================================================
+6. ADICIONANDO ARQUIVOS E COMMITANDO
+=======================================================
+Crie um arquivo:
+    echo "<h1>Olá Git!</h1>" > index.html
+
+Veja o status:
+    git status
+
+Adicione o arquivo:
+    git add index.html
+
+Confirme as mudanças:
+    git commit -m "Adiciona o arquivo index.html"
+
+=======================================================
+7. HISTÓRICO DE COMMITS
+=======================================================
+Visualize o histórico:
+    git log
+
+=======================================================
+8. RAMOS (BRANCHES)
+=======================================================
+Criar e mudar para uma nova branch:
+    git checkout -b nova-feature
+
+Voltar para a branch principal:
+    git checkout main
+
+Mesclar a nova branch:
+    git merge nova-feature
+
+Deletar uma branch:
+    git branch -d nova-feature
+
+Enviar uma branch nova para o GitHub:
+    git push origin nova-feature
+
+=======================================================
+9. REPOSITÓRIOS REMOTOS (GITHUB)
+=======================================================
+No GitHub:
+- Vá em https://github.com
+- Clique em “New Repository”
+- Crie o repositório
+
+Conecte com o repositório local:
+    git remote add origin https://github.com/usuario/repositorio.git
+    git branch -M main
+    git push -u origin main
+
+=======================================================
+10. CLONANDO REPOSITÓRIOS
+=======================================================
+    git clone https://github.com/usuario/repositorio.git
+
+=======================================================
+11. ATUALIZANDO SEU CÓDIGO LOCAL
+=======================================================
+    git pull origin main
+
+=======================================================
+12. ENVIANDO MUDANÇAS PARA O GITHUB
+=======================================================
+    git add .
+    git commit -m "Descrição das alterações"
+    git push origin main
+
+=======================================================
+13. IGNORANDO ARQUIVOS (.gitignore)
+=======================================================
+Crie o arquivo `.gitignore` com conteúdo como:
+    node_modules/
+    .env
+    *.log
+
+Esses itens serão ignorados pelo Git.
+
+=======================================================
+14. RESOLVENDO CONFLITOS
+=======================================================
+Se ao fazer merge houver conflitos:
+- O Git avisará quais arquivos estão em conflito.
+- Edite os arquivos manualmente e remova as marcações:
+  <<<<<<< HEAD, =======, >>>>>>>>
+- Após resolver:
+    git add <arquivo>
+    git commit -m "Resolve conflito"
+
+=======================================================
+15. ROTULANDO VERSÕES (TAGS)
+=======================================================
+Para criar uma tag de versão:
+    git tag -a v1.0 -m "Versão estável"
+
+Para referenciar um commit específico:
+    git tag v1.0.0 1b2e1d63ff
+(Use `git log` para pegar o ID do commit)
+
+=======================================================
+16. DESCARTANDO ALTERAÇÕES LOCAIS
+=======================================================
+Para descartar alterações de um arquivo:
+    git checkout -- <arquivo>
+
+Para desfazer tudo e voltar ao estado do servidor:
+    git fetch origin
+    git reset --hard origin/main
+
+=======================================================
+17. STASH (GUARDAR MUDANÇAS TEMPORARIAMENTE)
+=======================================================
+Guardar mudanças que ainda não quer commitar:
+    git stash
+
+Restaurar depois:
+    git stash pop
+
+=======================================================
+18. DICAS ÚTEIS
+=======================================================
+🔹 Interface gráfica:
+    gitk
+
+🔹 Ativar cores:
+    git config --global color.ui true
+
+🔹 Exibir commits em uma linha:
+    git log --oneline
+
+🔹 Inclusão interativa:
+    git add -i
+
+=======================================================
+19. EXEMPLO COMPLETO
+=======================================================
+# Cria pasta e inicia projeto
+mkdir site
+cd site
+git init
+
+# Cria e adiciona arquivo
+echo "<h1>Meu site</h1>" > index.html
+git add index.html
+git commit -m "Cria página inicial"
+
+# Conecta ao GitHub e envia
+git remote add origin https://github.com/seunome/site.git
+git branch -M main
+git push -u origin main
+
+=======================================================
+20. BOAS PRÁTICAS
+=======================================================
+✔️ Faça commits pequenos e frequentes  
+✔️ Escreva mensagens claras  
+✔️ Use branches para cada nova funcionalidade  
+✔️ Sempre faça `git pull` antes do `git push`  
+✔️ Nunca apague branches antes de confirmar se foram mescladas  
+
+---
+
+Com isso, você tem um guia prático e completo sobre Git. Ideal para iniciantes e muito útil para revisões rápidas! 🚀
